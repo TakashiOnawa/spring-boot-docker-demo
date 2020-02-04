@@ -10,7 +10,9 @@ services:
       - "8080:8080"
     container_name: demo1
     networks:
-      - spring-boot-docker-demo-network
+      spring-boot-docker-demo-network:
+        aliases:
+          - demo1.taonaw.org
 
   demo2:
     build:
@@ -21,7 +23,9 @@ services:
       - "8081:8080"
     container_name: demo2
     networks:
-      - spring-boot-docker-demo-network
+      spring-boot-docker-demo-network:
+        aliases:
+          - demo2.taonaw.org
 
 networks:
   spring-boot-docker-demo-network:

@@ -24,6 +24,8 @@ public class Demo1Controller {
     @GetMapping("/demo2list")
     public String demo2list(Model model) {
         var uri = "http://demo2:8080/items/list";
+//        var uri = "http://demo2.taonaw.org:8080/items/list";
+//        var uri = "http://demo2.taonaw.org/items/list";
         model.addAttribute("demo2list", demo2RestOptions.getForObject(uri, String.class));
         return "demo2list";
     }

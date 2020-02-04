@@ -11,7 +11,9 @@ services:
       - "8000:8000"
     container_name: demo1
     networks:
-      - spring-boot-docker-demo-network
+      spring-boot-docker-demo-network:
+        aliases:
+          - demo1.taonaw.org
     entrypoint: java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000 -jar app.jar
 
   demo2:
@@ -24,7 +26,9 @@ services:
       - "8001:8001"
     container_name: demo2
     networks:
-      - spring-boot-docker-demo-network
+      spring-boot-docker-demo-network:
+        aliases:
+          - demo2.taonaw.org
     entrypoint: java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8001 -jar app.jar
 
 networks:
