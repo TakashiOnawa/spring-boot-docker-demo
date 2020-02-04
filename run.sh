@@ -1,5 +1,3 @@
-./remove.sh
-
 cd demo1
 ./gradlew build
 cd ..

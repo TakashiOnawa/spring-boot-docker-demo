@@ -7,14 +7,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestOperations;
 
 @Configuration
-public class RestTemplateResolver {
+public class RestTemplateConfig {
 
     private final String demo2Url = "http://demo2:8080";
 
     @Bean
     @Qualifier("demo2RestOptions")
     public RestOperations demo2RestOptions(RestTemplateBuilder restTemplateBuilder) {
-//        restTemplateBuilder.rootUri(demo2Url);
-        return restTemplateBuilder.build();
+        return restTemplateBuilder.rootUri(demo2Url).build();
     }
 }

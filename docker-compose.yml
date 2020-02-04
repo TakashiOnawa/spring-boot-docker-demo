@@ -6,26 +6,24 @@ services:
       context: ./demo1
       args:
         - JAR_FILE=build/libs/*.jar
+    container_name: demo1
     ports:
       - "8080:8080"
-    container_name: demo1
+    depends_on:
+      - demo2
     networks:
-      spring-boot-docker-demo-network:
-        aliases:
-          - demo1.taonaw.org
+      - spring-boot-docker-demo-network
 
   demo2:
     build:
       context: ./demo2
       args:
         - JAR_FILE=build/libs/*.jar
-    ports:
-      - "8081:8080"
     container_name: demo2
+    expose:
+      - "8080"
     networks:
-      spring-boot-docker-demo-network:
-        aliases:
-          - demo2.taonaw.org
+      - spring-boot-docker-demo-network
 
 networks:
   spring-boot-docker-demo-network:
